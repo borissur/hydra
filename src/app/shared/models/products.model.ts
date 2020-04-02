@@ -1,5 +1,5 @@
 import { Validators } from "@angular/forms";
-import { positiveIntegerRegExp } from "../services/helper";
+import { positiveIntegerRegExp } from "../utils/helper";
 
 export class Product {
   id: number;

@@ -13,7 +13,7 @@ import { map, startWith, switchMap } from "rxjs/operators";
 import { HelperService } from "../shared/services/helper.service";
 import { MatDialog } from "@angular/material";
 import { DIALOG_DEFAULT_CONFIG } from "../shared/config/dialog-config";
-import { filterProductsList } from "../shared/services/helper";
+import { filterProductsList } from "../shared/utils/helper";
 import { AddProductModalComponent } from "./add-product-modal/add-product-modal.component";
 
 @Component({

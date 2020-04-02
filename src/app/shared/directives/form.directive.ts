@@ -6,7 +6,7 @@ import {
   Output,
 } from "@angular/core";
 import { FormGroup } from "@angular/forms";
-import { markAllControlsAsTouched } from "../services/helper";
+import { markAllControlsAsTouched } from "../utils/helper";
 
 @Directive({
   selector: "[hydraForm]",
