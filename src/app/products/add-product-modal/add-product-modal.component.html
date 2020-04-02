@@ -1,0 +1,22 @@
+<div>
+  <h3 mat-dialog-title>Добавить продукт</h3>
+  <div mat-dialog-content>
+    <hydra-product-item [productForm]="addProductForm" [product]="data">
+    </hydra-product-item>
+  </div>
+
+  <div mat-dialog-actions class="d-flex justify-content-between">
+    <button mat-stroked-button (click)="closeDialog()">
+      Закрыть
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      hydraForm
+      [form]="addProductForm"
+      (submitForm)="closeDialog(addProductForm.value.amount)"
+    >
+      Добавить
+    </button>
+  </div>
+</div>

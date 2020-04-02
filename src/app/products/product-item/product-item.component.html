@@ -1,0 +1,51 @@
+<div class="row d-flex justify-content-between align-items-center">
+  <div
+    class="col-{{ isShoppingCard ? 4 : 6 }}"
+    [class.mat-error]="
+      productForm.controls.amount.touched && productForm.controls.amount.errors
+    "
+  >
+    {{ product?.name }}
+  </div>
+  <div class="col-{{ isShoppingCard ? 4 : 6 }}">
+    <form [formGroup]="productForm">
+      <section>
+        <mat-form-field>
+          <input
+            matInput
+            type="number"
+            formControlName="amount"
+            min="0"
+            max="9999999999"
+            (change)="valueChanged()"
+          />
+        </mat-form-field>
+      </section>
+    </form>
+  </div>
+  <ng-container *ngIf="isShoppingCard">
+    <div>
+      <button mat-raised-button color="warn" (click)="openConfirmationModal()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-container
+    *ngIf="
+      productForm.controls.amount.touched && productForm.controls.amount.errors
+    "
+  >
+    <div class="col-12 d-flex justify-content-end error">
+      <mat-error *ngIf="productForm.controls.amount.errors.required"
+        >Это поле обязательное</mat-error
+      >
+      <mat-error *ngIf="productForm.controls.amount.errors.pattern"
+        >Число должно быть положительное и целое</mat-error
+      >
+      <mat-error *ngIf="productForm.controls.amount.errors.max"
+        >Максимально число 9999</mat-error
+      >
+    </div>
+  </ng-container>
+</div>

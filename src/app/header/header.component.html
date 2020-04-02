@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row class="d-flex justify-content-end">
+    <ng-container
+      *ngIf="
+        helperService.productsInShoppingCartLength$
+          | async as productsInShoppingCartLength;
+        else onlyImg
+      "
+    >
+      <button mat-button (click)="openShoppingCardModal()">
+        <mat-icon [matBadge]="productsInShoppingCartLength" matBadgeColor="warn"
+          >shopping_cart</mat-icon
+        >
+      </button>
+    </ng-container>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<ng-template #onlyImg>
+  <mat-icon matBadgeColor="warn">shopping_cart</mat-icon>
+</ng-template>
