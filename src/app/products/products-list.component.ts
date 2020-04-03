@@ -53,14 +53,19 @@ export class ProductsListComponent implements OnInit, OnDestroy {
     this.dialog.open(AddProductModalComponent, {
       ...DIALOG_DEFAULT_CONFIG,
       data: product,
-    });
+    }).afterClosed()
+      .subscribe((flag: boolean) => {
+        if (flag) {
+          this.productSearchControl.setValue('');
+        }
+      });
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
-  private initProductsList(products): void {
+  private initProductsList(products: Product[]): void {
     this.productsList$ = this.productSearchControl.valueChanges.pipe(
       startWith(""),
       map((value) => filterProductsList(value, products))
@@ -68,7 +73,7 @@ export class ProductsListComponent implements OnInit, OnDestroy {
     this.cdr.detectChanges();
   }
 
-  private updateProductsList(products) {
+  private updateProductsList(products: Product[]): void {
     this.helperService.updateProductsList(products);
   }
 }

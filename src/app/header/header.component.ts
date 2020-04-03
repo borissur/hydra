@@ -16,7 +16,7 @@ export class HeaderComponent {
     private dialog: MatDialog
   ) {}
 
-  openShoppingCardModal() {
+  openShoppingCardModal(): void {
     this.dialog.open(ShoppingCardModalComponent, {
       ...DIALOG_DEFAULT_CONFIG,
     });

@@ -1,35 +1,33 @@
-<ng-container>
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <mat-form-field appearance="outline">
-          <mat-label>Поиск</mat-label>
-          <input
-            placeholder="Поиск"
-            matInput
-            [formControl]="productSearchControl"
-          />
-        </mat-form-field>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-3" *ngFor="let product of productsList$ | async">
-        <mat-card>
-          <mat-card-header>
-            <mat-card-title>{{ product.name }}</mat-card-title>
-          </mat-card-header>
-          <img
-            mat-card-image
-            [src]="product.imageUrl"
-            [alt]="'Photo of a ' + product.name"
-          />
-          <mat-card-actions>
-            <button mat-stroked-button (click)="openModalAddProduct(product)">
-              Добавить в корзину
-            </button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <mat-form-field appearance="outline">
+        <mat-label>Поиск</mat-label>
+        <input
+          placeholder="Поиск"
+          matInput
+          [formControl]="productSearchControl"
+        />
+      </mat-form-field>
     </div>
   </div>
-</ng-container>
+  <div class="row">
+    <div class="col-3" *ngFor="let product of productsList$ | async">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ product.name }}</mat-card-title>
+        </mat-card-header>
+        <img
+          mat-card-image
+          [src]="product.imageUrl"
+          [alt]="'Photo of a ' + product.name"
+        />
+        <mat-card-actions>
+          <button mat-stroked-button (click)="openModalAddProduct(product)">
+            Добавить в корзину
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

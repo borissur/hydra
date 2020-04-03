@@ -1,5 +1,5 @@
-import {FormGroup} from '@angular/forms';
-import {Product} from '../models/products.model';
+import { FormGroup } from '@angular/forms';
+import { Product } from '../models/products.model';
 
 export function markAllControlsAsTouched(form: FormGroup): void {
   if (!(form && form.controls)) {

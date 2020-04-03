@@ -48,6 +48,7 @@ export class ProductItemComponent implements OnInit {
     this.dialog
       .open(ConfirmationModalComponent, {
         width: DialogSize.sm,
+        autoFocus: false,
         data: "Вы уверены, что хотите удалить этот элемнет?",
       })
       .afterClosed()

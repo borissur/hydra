@@ -30,13 +30,13 @@ export class AddProductModalComponent implements OnInit {
     );
   }
 
-  closeDialog(amount?): void {
+  closeDialog(amount?: number): void {
     if (amount) {
       this.data.amount = amount;
       this.helperService.updateProductsListAfterChangeAmountOfProduct(
         this.data
       );
     }
-    this.dialogRef.close();
+    this.dialogRef.close(amount);
   }
 }

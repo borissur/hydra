@@ -1,7 +1,6 @@
-import { BehaviorSubject, Observable } from "rxjs";
-import { Product } from "../models/products.model";
-import { filter, map, pluck } from "rxjs/operators";
-import { log } from "util";
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Product } from '../models/products.model';
+import { filter, map, pluck } from 'rxjs/operators';
 
 export class HelperService {
   productsList$: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>(
@@ -19,11 +18,15 @@ export class HelperService {
     number
   > = this.productsInShoppingCart$.pipe(pluck("length"));
 
-  updateProductsList(products): void {
+  get productList() {
+    return this.productsList$.value;
+  }
+
+  updateProductsList(products: Product[]): void {
     this.productsList$.next(products);
   }
 
-  updateProductsListAfterChangeAmountOfProduct(updateProduct): void {
+  updateProductsListAfterChangeAmountOfProduct(updateProduct: Product): void {
     const productsList = this.productList;
     const changeProduct: Product = productsList.find(
       (item: Product) => item.id === updateProduct.id
@@ -49,9 +52,5 @@ export class HelperService {
       delete product.amount;
     });
     this.productsList$.next(productsList);
-  }
-
-  get productList() {
-    return this.productsList$.value;
   }
 }

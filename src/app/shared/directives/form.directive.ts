@@ -28,12 +28,9 @@ export class FormDirective {
   }
 
   checkForm(): void {
-    if (this.form && this.form.disabled) {
-      this.submitForm.next();
-    }
-
     markAllControlsAsTouched(this.form);
-    if (!this.form || this.form.valid) {
+
+    if (this.form.valid) {
       this.submitForm.next();
     }
   }

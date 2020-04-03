@@ -18,11 +18,11 @@ export class AddSelectedProductForm {
     model: Product,
     public amount = [
       model.amount ? model.amount : 0,
-      Validators.compose([
+      [
         Validators.required,
         Validators.max(9999),
         Validators.pattern(positiveIntegerRegExp),
-      ]),
+      ],
     ]
   ) {}
 }
